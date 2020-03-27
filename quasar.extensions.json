@@ -1,0 +1,41 @@
+{
+  "ide-helper": {
+    "__internal": {
+      "lastQuasarVersion": "1.4.3",
+      "lastIdeHelperVersion": "1.0.0-alpha.3"
+    }
+  },
+  "@quasar/icon-genie": {
+    "minify_dev": "pngquant",
+    "minify_build": "optipng",
+    "cordova": {
+      "background_color": "#000074",
+      "splashscreen_type": "pure"
+    },
+    "build_always": true,
+    "__internal": {
+      "dev": {
+        "spa": {
+          "iconHash": "122a143d26d7ff926f4b7548f70b2555"
+        },
+        "cordova": {
+          "iconHash": "122a143d26d7ff926f4b7548f70b2555",
+          "splashscreenHash": "139b16cbddc8507915565c622aa74c47",
+          "splashscreenType": "pure",
+          "backgroundColor": "#000074"
+        }
+      },
+      "build": {
+        "cordova": {
+          "iconHash": "122a143d26d7ff926f4b7548f70b2555",
+          "splashscreenHash": "139b16cbddc8507915565c622aa74c47",
+          "splashscreenType": "pure",
+          "backgroundColor": "#000074"
+        },
+        "spa": {
+          "iconHash": "122a143d26d7ff926f4b7548f70b2555"
+        }
+      }
+    }
+  }
+}
