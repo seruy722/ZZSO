@@ -6,13 +6,13 @@
     <q-header
       reveal
       elevated
-      class="bg-primary text-white"
+      class="bg-primary text-white top_anchor"
     >
       <q-toolbar>
         <q-toolbar-title class="row items-center q-pa-md">
           <!--          <q-avatar size="100px" font-size="52px" color="teal" text-color="white" icon="directions"/>-->
           <div
-            style="overflow: hidden;font-size: 1em;word-wrap: break-word;white-space: normal;margin:0 auto;">
+            style="max-width: 500px;overflow: hidden;font-size: 1em;word-wrap: break-word;white-space: normal;margin-left: 50px;">
             СИМОНІВСЬКИЙ ЗЗСО І-ІІІ СТУПЕНІВ ЄМІЛЬЧИНСЬКОЇ СЕЛИЩНОЇ РАДИ ЖИТОМИРСЬКОЇ ОБЛАСТІ
           </div>
         </q-toolbar-title>
@@ -22,20 +22,18 @@
           padding
           class="rounded-borders row justify-center"
         >
-          <ListItem
-            v-for="(item, index) in menu"
+          <q-item
+            v-for="({label, to}, index) in menu"
             :key="index"
             v-ripple
             clickable
-            active-class="text-yellow"
-            :active="activeMenuItem(item)"
-            :to="item.to"
             class="cursor-pointer"
+            @click="scrollToElement(to)"
           >
             <ItemSection>
-              {{ item.label }}
+              {{ label }}
             </ItemSection>
-          </ListItem>
+          </q-item>
         </q-list>
       </div>
     </q-header>
@@ -46,33 +44,62 @@
 </template>
 
 <script>
+  import { scroll } from 'quasar';
+
+  const { getScrollTarget, setScrollPosition } = scroll;
+
   export default {
     components: {
-      ListItem: () => import('components/Elements/ListItem.vue'),
+      // ListItem: () => import('components/Elements/ListItem.vue'),
       ItemSection: () => import('components/Elements/ItemSection.vue'),
     },
     data() {
       return {
         menu: [
           {
-            label: 'Главная',
+            label: 'Головна',
+            to: 'top_anchor',
           },
           {
-            label: 'Документация',
+            label: 'Документація',
+            to: 'docs_anchor',
           },
           {
             label: 'Галерея',
+            to: 'gallery_anchor',
           },
           {
-            label: 'Контакты',
+            label: 'Контакти',
+            to: 'contacts_anchor',
           },
         ],
       };
     },
     methods: {
-      activeMenuItem(item) {
-        return item.to === this.$route.path;
+      scrollToElement(className) {
+        if (className) {
+          const el = document.querySelector(`.${className}`);
+          const target = getScrollTarget(el);
+          const offset = el.offsetTop;
+          const duration = 1000;
+          setScrollPosition(target, offset, duration);
+        }
       },
+      // scrolTo() {
+      //   const anchors = document.querySelectorAll('a[href*="#"]');
+      //   for (const anchor of anchors) {
+      //     anchor.addEventListener('click', (e) => {
+      //       e.preventDefault();
+      //
+      //       const blockID = anchor.getAttribute('href').substr(1);
+      //
+      //       document.getElementById(blockID).scrollIntoView({
+      //         behavior: 'smooth',
+      //         block: 'start',
+      //       });
+      //     });
+      //   }
+      // },
     },
   };
 </script>

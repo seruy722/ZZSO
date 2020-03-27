@@ -16,7 +16,7 @@
     "__internal": {
       "dev": {
         "spa": {
-          "iconHash": "122a143d26d7ff926f4b7548f70b2555"
+          "iconHash": "88b0b22da5a2164aa466aaf00fe9a02a"
         },
         "cordova": {
           "iconHash": "122a143d26d7ff926f4b7548f70b2555",
@@ -33,7 +33,7 @@
           "backgroundColor": "#000074"
         },
         "spa": {
-          "iconHash": "122a143d26d7ff926f4b7548f70b2555"
+          "iconHash": "88b0b22da5a2164aa466aaf00fe9a02a"
         }
       }
     }
