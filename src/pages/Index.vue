@@ -4,7 +4,7 @@
       <q-parallax
         src="statics/img/main.jpg"
       >
-        <h3 class="text-white">СИМОНІВСЬКИЙ ЗЗСО І-ІІІ СТУПЕНІВ</h3>
+        <h4 class="text-white">СИМОНІВСЬКИЙ ЗЗСО І-ІІІ СТУПЕНІВ</h4>
       </q-parallax>
 
     </div>
