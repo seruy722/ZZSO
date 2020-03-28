@@ -2,7 +2,7 @@
   <q-page data-vue-component-name="PageIndex">
     <div class="row justify-between">
       <q-parallax
-        src="https://cdn.quasar.dev/img/parallax2.jpg"
+        src="statics/img/main.jpg"
       >
         <h3 class="text-white">СИМОНІВСЬКИЙ ЗЗСО І-ІІІ СТУПЕНІВ</h3>
       </q-parallax>
@@ -23,7 +23,7 @@
           <q-item-label>{{ `${index + 1}. ${item.title}` }}</q-item-label>
         </q-item-section>
         <q-item-section side>
-          <q-icon class="q-ml-md" size="sm" name="visibility" color="primary" @click="viewFile(item)">
+          <q-icon class="q-ml-md" size="sm" name="visibility" color="primary" @click.stop="viewFile(item)">
             <q-tooltip>Перегляд</q-tooltip>
           </q-icon>
         </q-item-section>
@@ -32,22 +32,41 @@
     <div class="text-h4 text-bold text-center headers gallery_anchor">
       Галерея
     </div>
+    <div class="row wrap">
+      <q-carousel
+        v-model="slider1"
+        animated
+        arrows
+        infinite
+        swipeable
+        :style="`${$q.screen.xs ? 'width: 100%': 'width: 45%'};margin: 20px auto`"
+      >
+        <q-carousel-slide
+          v-for="(foto, index) in 6"
+          :key="index"
+          :name="index + 1"
+          :img-src="`statics/img/school/${index+1}.jpg`"
+        />
+      </q-carousel>
+      <q-carousel
+        v-model="slider2"
+        arrows
+        infinite
+        swipeable
+        :style="`${$q.screen.xs ? 'width: 100%': 'width: 45%'};margin: 20px auto`"
+      >
+        <q-carousel-slide
+          v-for="(foto, index) in 17"
+          :key="index"
+          :name="index + 1"
+          :img-src="`statics/img/${index+1}.jpg`"
+        />
+      </q-carousel>
+    </div>
 
-    <q-carousel
-      v-model="slide"
-      animated
-      arrows
-      navigation
-      infinite
-    >
-      <q-carousel-slide :name="1" img-src="https://cdn.quasar.dev/img/mountains.jpg"/>
-      <q-carousel-slide :name="2" img-src="https://cdn.quasar.dev/img/parallax1.jpg"/>
-      <q-carousel-slide :name="3" img-src="https://cdn.quasar.dev/img/parallax2.jpg"/>
-      <q-carousel-slide :name="4" img-src="https://cdn.quasar.dev/img/quasar.jpg"/>
-    </q-carousel>
     <FooterForIndexLayout/>
     <q-page-scroller position="bottom-right" :scroll-offset="250" :offset="[18, 50]">
-      <q-btn fab icon="keyboard_arrow_up" color="accent" />
+      <q-btn fab icon="keyboard_arrow_up" color="accent"/>
       <q-tooltip>Вгору</q-tooltip>
     </q-page-scroller>
   </q-page>
@@ -63,7 +82,9 @@
     },
     data() {
       return {
-        slide: 1,
+        slider1: 1,
+        slider2: 1,
+        fotoNames: ['main.jpg'],
         filesNames: [
           {
             title: 'Статут СИМОНІВСЬКИЙ ЗЗСО  за новим законом про освіту',
@@ -123,6 +144,18 @@
           {
             title: 'Порядок реагування на доведені випадки булінгу',
             extension: 'docx',
+          },
+          {
+            title: 'Освітня програма',
+            extension: 'docx',
+          },
+          {
+            title: 'Звіт',
+            extension: 'docx',
+          },
+          {
+            title: 'Кошторис',
+            extension: 'pdf',
           },
         ],
       };

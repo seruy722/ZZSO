@@ -49,18 +49,13 @@
             label: '11257, Житомирська обл., Ємільчинський р-н., с. Симони, вул. Першотравнева, б. 15',
           },
           {
-            label: 'Телефон: +0 (000) 000-00-00',
+            label: 'Телефон: +80 (4149) 766-36',
           },
           {
             label: 'E-mail: symonyschool@ukr.net',
           },
         ],
       };
-    },
-    methods: {
-      activeMenuItem(item) {
-        return item.to === this.$route.path;
-      },
     },
   };
 </script>
