@@ -4,21 +4,19 @@
     data-vue-component-name="FooterForIndexLayout"
   >
     <div class="text-white bg-primary">
-      <div>
+      <div class="q-pa-md">
+        <q-item-label class="text-h4 text-bold">
+          Контакти
+        </q-item-label>
         <q-list
+          v-for="(item, index) in contacts"
+          :key="index"
           padding
-          dense
           class="rounded-borders"
         >
-          <ItemLabel class="text-h4 q-ml-md q-mb-sm text-bold">Контакти</ItemLabel>
-          <ListItem
-            v-for="(item, index) in contacts"
-            :key="index"
-          >
-            <ItemSection>
-              <ItemLabel>{{ item.label }}</ItemLabel>
-            </ItemSection>
-          </ListItem>
+          <q-item-section>
+            <q-item-label>{{ item.label }}</q-item-label>
+          </q-item-section>
         </q-list>
       </div>
 
@@ -34,28 +32,23 @@
 </template>
 
 <script>
-  export default {
-    name: 'FooterForIndexLayout',
-    components: {
-      ListItem: () => import('components/Elements/ListItem.vue'),
-      ItemSection: () => import('components/Elements/ItemSection.vue'),
-      ItemLabel: () => import('components/Elements/ItemLabel.vue'),
-    },
-    data() {
-      return {
-        footer: true,
-        contacts: [
-          {
-            label: '11257, Житомирська обл., Ємільчинський р-н., с. Симони, вул. Першотравнева, б. 15',
-          },
-          {
-            label: 'Телефон: +80 (4149) 766-36',
-          },
-          {
-            label: 'E-mail: symonyschool@ukr.net',
-          },
-        ],
-      };
-    },
-  };
+export default {
+  name: 'FooterForIndexLayout',
+  data() {
+    return {
+      footer: true,
+      contacts: [
+        {
+          label: '11257, Житомирська обл., Ємільчинський р-н., с. Симони, вул. Першотравнева, б. 15',
+        },
+        {
+          label: 'Телефон: +80 (4149) 766-36',
+        },
+        {
+          label: 'E-mail: symonyschool@ukr.net',
+        },
+      ],
+    };
+  },
+};
 </script>
