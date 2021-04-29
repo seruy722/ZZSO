@@ -8,11 +8,7 @@
   "private": true,
   "scripts": {
     "dev:web": "quasar dev",
-    "dev:android": "quasar dev -m cordova -T android",
-    "dev:ios": "quasar dev -m cordova -T ios",
     "build:web": "quasar build",
-    "build:android": "quasar build -m cordova -T android",
-    "build:ios": "quasar build -m cordova -T ios",
     "lint": "eslint --ext .js,.vue src",
     "test": "echo \"No test specified\" && exit 0"
   },

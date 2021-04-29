@@ -72,33 +72,44 @@
     <div class="text-h4 text-bold text-center headers docs_anchor">
       Документація
     </div>
-    <q-list
-      bordered
-      separator
-    >
-      <q-item
-        v-for="(item, index) in filesNames"
-        :key="index"
-        v-ripple
-        clickable
-        @click="downloadFile(item)"
+    <q-list bordered separator class="rounded-borders">
+      <q-expansion-item
+        v-for="(file, i) in files"
+        :key="i"
+        switch-toggle-side
+        expand-separator
+        icon="list"
+        :label="file.label"
       >
-        <q-item-section>
-          <q-item-label>{{ `${index + 1}. ${item.title}` }}</q-item-label>
-        </q-item-section>
-        <q-item-section side>
-          <q-icon
-            v-if="item.extension !== 'pdf'"
-            class="q-ml-md"
-            size="sm"
-            name="visibility"
-            color="primary"
-            @click.stop="viewFile(item)"
+        <q-list
+          bordered
+          separator
+        >
+          <q-item
+            v-for="(item, index) in file.files"
+            :key="index"
+            v-ripple
+            clickable
+            @click="downloadFile(item)"
           >
-            <q-tooltip>Перегляд</q-tooltip>
-          </q-icon>
-        </q-item-section>
-      </q-item>
+            <q-item-section>
+              <q-item-label>{{ `${index + 1}. ${item.title}` }}</q-item-label>
+            </q-item-section>
+            <q-item-section side>
+              <q-icon
+                v-if="item.extension !== 'pdf'"
+                class="q-ml-md"
+                size="sm"
+                name="visibility"
+                color="primary"
+                @click.stop="viewFile(item)"
+              >
+                <q-tooltip>Перегляд</q-tooltip>
+              </q-icon>
+            </q-item-section>
+          </q-item>
+        </q-list>
+      </q-expansion-item>
     </q-list>
     <div class="text-h4 text-bold text-center headers gallery_anchor">
       Галерея
@@ -155,93 +166,142 @@ export default {
       slider1: 1,
       slider2: 1,
       fotoNames: ['main.jpg'],
-      filesNames: [
+      files: [
         {
-          title: 'Статут СИМОНІВСЬКИЙ ЗЗСО  за новим законом про освіту',
-          extension: 'doc',
-        }, {
-          title: 'Правила поведінки здобувачів освіти',
-          extension: 'docx',
+          label: 'Загальні',
+          files: [
+            {
+              title: 'Ліцензія на продовження освітньої діяльності',
+              extension: 'pdf',
+              path: '/statics/files/general/Ліцензія на продовження освітньої діяльності.pdf',
+            },
+            {
+              title: 'Статут СИМОНІВСЬКИЙ ЗЗСО  за новим законом про освіту',
+              extension: 'doc',
+              path: '/statics/files/general/Статут СИМОНІВСЬКИЙ ЗЗСО  за новим законом про освіту.doc',
+            },
+            {
+              title: 'Правила поведінки здобувачів освіти',
+              extension: 'docx',
+              path: '/statics/files/general/Правила поведінки здобувачів освіти.docx',
+            },
+            {
+              title: 'Правила прийому до закладу освіти',
+              extension: 'docx',
+              path: '/statics/files/general/Правила прийому до закладу освіти.docx',
+            },
+            {
+              title: 'Територія обслуговування',
+              extension: 'docx',
+              path: '/statics/files/general/Територія обслуговування.docx',
+            },
+            {
+              title: 'Додаткові освітні послуги',
+              extension: 'docx',
+              path: '/statics/files/general/Додаткові освітні послуги.docx',
+            },
+            {
+              title: 'Умови доступності ЗЗСО для навчання дітей з особливими потребами',
+              extension: 'docx',
+              path: '/statics/files/general/Умови доступності ЗЗСО для навчання дітей з особливими потребами.docx',
+            },
+            {
+              title: 'Мова освітнього процесу',
+              extension: 'docx',
+              path: '/statics/files/general/Мова освітнього процесу.docx',
+            },
+            {
+              title: 'Наявність вакантних посад',
+              extension: 'docx',
+              path: '/statics/files/general/Наявність вакантних посад.docx',
+            },
+            {
+              title: 'Структура та органи управління закладу',
+              extension: 'docx',
+              path: '/statics/files/general/Структура та органи управління закладу.docx',
+            },
+            {
+              title: 'Ліцензований обсяг',
+              extension: 'docx',
+              path: '/statics/files/general/Ліцензований обсяг.docx',
+            },
+            {
+              title: 'Матеріально-технічна база',
+              extension: 'docx',
+              path: '/statics/files/general/Матеріально-технічна база.docx',
+            },
+            {
+              title: 'Кадровий склад',
+              extension: 'docx',
+              path: '/statics/files/general/Кадровий склад.docx',
+            },
+            {
+              title: 'План заходів спрямований на запобігання булінгу',
+              extension: 'docx',
+              path: '/statics/files/general/План заходів спрямований на запобігання булінгу.docx',
+            },
+            {
+              title: 'Порядок надання та розгляду заяв про випадки булінгу',
+              extension: 'docx',
+              path: '/statics/files/general/Порядок надання та розгляду заяв про випадки булінгу.docx',
+            },
+            {
+              title: 'Порядок реагування на доведені випадки булінгу',
+              extension: 'docx',
+              path: '/statics/files/general/Порядок реагування на доведені випадки булінгу.docx',
+            },
+            {
+              title: 'Освітня програма',
+              extension: 'docx',
+              path: '/statics/files/general/Освітня програма.docx',
+            },
+          ],
         },
         {
-          title: 'Правила прийому до закладу освіти',
-          extension: 'docx',
+          label: '2020 рік',
+          files: [
+            {
+              title: 'Звіт',
+              extension: 'docx',
+              path: '/statics/files/2020/Звіт.docx',
+            },
+            {
+              title: 'Кошторис',
+              extension: 'pdf',
+              path: '/statics/files/2020/Кошторис.pdf',
+            },
+          ],
         },
         {
-          title: 'Територія обслуговування',
-          extension: 'docx',
-        },
-        {
-          title: 'Додаткові освітні послуги',
-          extension: 'docx',
-        },
-        {
-          title: 'Умови доступності ЗЗСО для навчання дітей з особливими потребами',
-          extension: 'docx',
-        },
-        {
-          title: 'Мова освітнього процесу',
-          extension: 'docx',
-        },
-        {
-          title: 'Наявність вакантних посад',
-          extension: 'docx',
-        },
-        {
-          title: 'Структура та органи управління закладу',
-          extension: 'docx',
-        },
-        {
-          title: 'Ліцензований обсяг',
-          extension: 'docx',
-        },
-        {
-          title: 'Матеріально-технічна база',
-          extension: 'docx',
-        },
-        {
-          title: 'Кадровий склад',
-          extension: 'docx',
-        },
-        {
-          title: 'План заходів спрямований на запобігання булінгу',
-          extension: 'docx',
-        },
-        {
-          title: 'Порядок надання та розгляду заяв про випадки булінгу',
-          extension: 'docx',
-        },
-        {
-          title: 'Порядок реагування на доведені випадки булінгу',
-          extension: 'docx',
-        },
-        {
-          title: 'Освітня програма',
-          extension: 'docx',
-        },
-        {
-          title: 'Звіт',
-          extension: 'docx',
-        },
-        {
-          title: 'Кошторис',
-          extension: 'pdf',
+          label: '2021 рік',
+          files: [
+            // {
+            //   title: 'Звіт',
+            //   extension: 'docx',
+            //   path: '/statics/files/2021/Звіт.docx',
+            // },
+            {
+              title: 'Кошторис',
+              extension: 'pdf',
+              path: '/statics/files/2021/Кошторис.pdf',
+            },
+          ],
         },
       ],
     };
   },
   methods: {
-    downloadFile({ title, extension }) {
+    downloadFile({ title, path }) {
       const link = document.createElement('a');
-      link.href = `http://symony-school.site/statics/files/${title}.${extension}`;
+      link.href = `https://symony-school.site${path}`;
       link.setAttribute('download', title);
       link.setAttribute('target', '_blank');
       document.body.appendChild(link);
       link.click();
     },
-    viewFile({ title, extension }) {
+    viewFile({ path }) {
       const link = document.createElement('a');
-      link.href = `https://view.officeapps.live.com/op/embed.aspx?src=http://symony-school.site/statics/files/${title}.${extension}&embedded=true`;
+      link.href = `https://view.officeapps.live.com/op/embed.aspx?src=http://symony-school.site${path}&embedded=true`;
       link.setAttribute('target', '_blank');
       document.body.appendChild(link);
       link.click();
