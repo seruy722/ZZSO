@@ -287,6 +287,26 @@ export default {
             },
           ],
         },
+        {
+          label: 'Дистанційне навчання',
+          files: [
+            {
+              title: 'Положення про дистанційне навчання',
+              extension: 'docx',
+              path: '/statics/files/distance/Положення про дистанційне навчання.docx',
+            },
+            {
+              title: 'Поради батькам',
+              extension: 'docx',
+              path: '/statics/files/distance/Поради батькам.docx',
+            },
+            {
+              title: 'Поради учням',
+              extension: 'docx',
+              path: '/statics/files/distance/Поради учням.docx',
+            },
+          ],
+        },
       ],
     };
   },
