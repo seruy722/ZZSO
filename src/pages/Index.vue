@@ -258,21 +258,6 @@ export default {
           ],
         },
         {
-          label: '2020 рік',
-          files: [
-            {
-              title: 'Звіт',
-              extension: 'docx',
-              path: '/statics/files/2020/Звіт.docx',
-            },
-            {
-              title: 'Кошторис',
-              extension: 'pdf',
-              path: '/statics/files/2020/Кошторис.pdf',
-            },
-          ],
-        },
-        {
           label: '2021 рік',
           files: [
             // {
@@ -284,6 +269,21 @@ export default {
               title: 'Кошторис',
               extension: 'pdf',
               path: '/statics/files/2021/Кошторис.pdf',
+            },
+          ],
+        },
+        {
+          label: '2020 рік',
+          files: [
+            {
+              title: 'Звіт',
+              extension: 'docx',
+              path: '/statics/files/2020/Звіт.docx',
+            },
+            {
+              title: 'Кошторис',
+              extension: 'pdf',
+              path: '/statics/files/2020/Кошторис.pdf',
             },
           ],
         },
