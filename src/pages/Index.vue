@@ -326,6 +326,11 @@ export default {
               extension: 'docx',
               path: '/statics/files/general/Освітня програма.docx',
             },
+            {
+              title: 'Інформація про перелік товарів, робіт і послуг, отриманих як благодійна допомога',
+              extension: 'docx',
+              path: '/statics/files/general/Інформація про перелік товарів, робіт і послуг, отриманих як благодійна допомога.docx',
+            },
           ],
         },
         {
